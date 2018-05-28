@@ -29,6 +29,13 @@ class Overview extends Component {
     }
 
     render() {
+        // let appt = (this.props.currentDayAppointments) ? (<div>Hello</div>) : (<div>Nodata</div>);
+        if (this.props.currentDayAppointments.currentDayAppointments.length > 0) {
+          console.log("Here")
+          console.log(this.props.currentDayAppointments.currentDayAppointments[0].patientName)
+        } else {
+          console.log(this.props.currentDayAppointments)
+        }
         return (
             <div>
                 <h1 className='Overview-WelcomeMessage'> Welcome Back! </h1>
@@ -72,13 +79,9 @@ class Overview extends Component {
                             <StyledTitle fontSize='25px'> <span style={{ color: '#FEBB26' }}> 10 </span> Total Appointments </StyledTitle>
                         </div>
                     </Card>
+                    {/* {appt} */}
                 </div>
                 <div>
-                    {this.props.currentDayAppointments.length > 0 &&
-                        <div>
-                            {this.props.currentDayAppointments[0].patientName}
-                        </div>
-                    }
                 </div>
             </div>
         )
@@ -93,7 +96,7 @@ const mapStateToProps = state => {
     }
 }
 
-const  mapDisaptchToProps = () => {
+const mapDispatchToProps = () => {
     return {
         getDoctorAppointments,
         getDoctorInfo,
@@ -101,4 +104,4 @@ const  mapDisaptchToProps = () => {
     }
 }
 
-export default connect(mapStateToProps, mapDisaptchToProps())(Overview);
+export default connect(mapStateToProps, mapDispatchToProps())(Overview);
