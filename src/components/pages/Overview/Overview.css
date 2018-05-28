@@ -1,0 +1,52 @@
+.Overview-WelcomeMessage {
+    margin: 45px 0px 50px 50px;
+}
+
+.Overview-Summary {
+    display: flex;
+    flex-direction: row;
+    height: 230px;
+    margin: 50px 50px 32px 50px;
+}
+
+.Overview-DoctorInfoBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0px 10px;
+}
+
+.Overview-DoctorAvatar {
+    border-radius: 50%;
+    height: 200px;
+}
+
+.Overview-DoctorInfo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-left: 40px;
+}
+
+.Overview-NextPatientInfo, .Overview-NextPatientBlock-Right, .Overview-TodayOverviewBlock  {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Overview-NextPatientBlock-Right {
+    
+    align-items: center;
+}
+
+.Overview-NextPatientAttributes {
+    display: flex;
+    flex-direction: row;
+}
+
+.Overview-NextPatientAvator {
+    border-radius: 10%;
+    height: 100px;
+    width: 100px;
+}

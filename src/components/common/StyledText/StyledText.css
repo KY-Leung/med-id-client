@@ -1,0 +1,12 @@
+.StyledText {
+    font-family: Roboto;
+    color: #727272;
+}
+
+.StyledText-Title {
+    font-weight: 500;
+}
+
+.StyledText-Content {
+    font-weight: 400;
+}

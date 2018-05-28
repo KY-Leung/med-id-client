@@ -1,0 +1,27 @@
+{
+    "name": "Dr. John House",
+    "title": "Resident General Practitioner",
+    "consultationScheduleToday": [
+        {
+            "patientName": "Jacky",
+            "appointment": "09:15 AM",
+            "visitStatus": "Appointment",
+            "Details": "25Y / Female",
+            "Last Appt": "--"
+        },
+        {
+            "patientName": "Jacky",
+            "appointment": "09:15 AM",
+            "visitStatus": "Appointment",
+            "Details": "25Y / Female",
+            "Last Appt": "--"
+        },
+        {
+            "patientName": "Jacky",
+            "appointment": "09:15 AM",
+            "visitStatus": "Appointment",
+            "Details": "25Y / Female",
+            "Last Appt": "--"
+        }
+    ]
+}

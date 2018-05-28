@@ -1,0 +1,47 @@
+.ProgramDumps-ChartContainer {
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.ProgramDumps-ChartCard {
+	height: 330px;
+	width: 100%;
+	padding: 20px 30px;
+	border-radius: 2px;
+	background-color: #FFFFFF;
+	box-sizing: border-box;
+	margin-bottom: 8px;
+}
+
+.ProgramDumps-ChartTitle {
+	font-size: 20px;
+	font-weight: 500;
+	color: #222222;
+}
+
+.ProgramDumps-EmptyContainer {
+    background-color: #ECECEC;	
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.25);
+    height: 100%;
+    border-radius: 4px;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.ProgramDumps-EmptyContainer p {
+    position: relative;
+    top: 48.4%;
+    transform: translateY(-50%);
+    color: #AAAAAA;	
+    font-size: 20px;	
+    font-weight: 500;	
+    line-height: 22px;
+}
+
+.ProgramDumpsLineChart-ChartContainer {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}

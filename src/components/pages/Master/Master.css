@@ -1,0 +1,8 @@
+.Master-AppBarContainer {
+	flex-grow: 1;
+}
+
+.Master-IconButton {
+    margin-left: -12;
+    margin-right: 20;
+}
