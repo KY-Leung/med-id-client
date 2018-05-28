@@ -34,6 +34,7 @@ const styles = theme => ({
     display: 'flex',
   },
   appBar: {
+    backgroundColor: '#1C8DB1',
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
@@ -86,13 +87,13 @@ const styles = theme => ({
     marginTop: '64px',
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
+    // padding: theme.spacing.unit * 3,
   },
 });
 
 class Master extends React.Component {
     state = {
-        open: false,
+        open: true,
     };
 
     handleDrawerOpen = () => {
