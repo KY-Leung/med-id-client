@@ -1,7 +1,16 @@
 import constants from '../actions/constants';
 
 const initialState = {
-    currentDayAppointments: []
+    currentDayAppointments: [
+        {
+            "patientName": "",
+            "patientDetails": "",
+            "appointmentTime": "",
+            "visitStatus": "",
+            "appointmentDuration": "",
+            "lastAppt": ""
+        }
+    ]
 }
 
 export default function getDoctorInfo (state = initialState, action) {

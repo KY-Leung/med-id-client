@@ -29,13 +29,8 @@ class Overview extends Component {
     }
 
     render() {
-        // let appt = (this.props.currentDayAppointments) ? (<div>Hello</div>) : (<div>Nodata</div>);
-        if (this.props.currentDayAppointments.currentDayAppointments.length > 0) {
-          console.log("Here")
-          console.log(this.props.currentDayAppointments.currentDayAppointments[0].patientName)
-        } else {
-          console.log(this.props.currentDayAppointments)
-        }
+        let nextPatient = this.props.currentDayAppointments[0];
+
         return (
             <div>
                 <h1 className='Overview-WelcomeMessage'> Welcome Back! </h1>
@@ -47,39 +42,42 @@ class Overview extends Component {
                             <StyledContent fontSize='18px' style={{marginTop: '18px'}}> Resident General Practioner </StyledContent>  
                         </div>
                     </div>
-                    <Card style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', flex: 1 }}>
-                        <div className='Overview-NextPatientInfo'>
-                            <StyledTitle fontSize='25px'> NextPatient: </StyledTitle>
-                            <StyledTitle fontSize='18px' style={{marginTop: '10px'}}> Jacky </StyledTitle>
-                            <StyledContent fontSize='18px'> 09:15 </StyledContent>
-                            <div class = 'Overview-NextPatientAttributes'>
-                                <StyledTitle fontSize='16px'> Visit Status: </StyledTitle>
-                                <StyledContent fontSize='16px' style={{marginLeft: '5px'}}> Appointment </StyledContent>
+                    { this.props.currentDayAppointments.length > 0 &&
+                        <Card style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', flex: 1 }}>
+                            <div className='Overview-NextPatientInfo'>
+                                <StyledTitle fontSize='25px'> NextPatient: </StyledTitle>
+                                <StyledTitle fontSize='18px' style={{marginTop: '10px'}}> {nextPatient.patientName} </StyledTitle>
+                                <StyledContent fontSize='18px'> {nextPatient.appointmentTime} </StyledContent>
+                                <div class = 'Overview-NextPatientAttributes'>
+                                    <StyledTitle fontSize='16px'> Visit Status: </StyledTitle>
+                                    <StyledContent fontSize='16px' style={{marginLeft: '5px'}}> {nextPatient.visitStatus} </StyledContent>
+                                </div>
+                                <div class = 'Overview-NextPatientAttributes'>
+                                    <StyledTitle fontSize='16px'> Details: </StyledTitle>
+                                    <StyledContent fontSize='16px' style={{marginLeft: '5px'}}> {nextPatient.patientDetails} </StyledContent>
+                                </div>
+                                <div class = 'Overview-NextPatientAttributes'>
+                                    <StyledTitle fontSize='16px'>  Last Appt: </StyledTitle>
+                                    <StyledContent fontSize='16px' style={{marginLeft: '5px'}}> {nextPatient.lastAppt} </StyledContent>
+                                </div>
                             </div>
-                            <div class = 'Overview-NextPatientAttributes'>
-                                <StyledTitle fontSize='16px'> Details: </StyledTitle>
-                                <StyledContent fontSize='16px' style={{marginLeft: '5px'}}> 25 / Female </StyledContent>
+                            <div className='Overview-NextPatientBlock-Right'>
+                                <img src={doctorLogo} className='Overview-NextPatientAvator'/>
+                                <Button color="primary">
+                                    More Details
+                                </Button>
                             </div>
-                            <div class = 'Overview-NextPatientAttributes'>
-                                <StyledTitle fontSize='16px'>  Last Appt: </StyledTitle>
-                                <StyledContent fontSize='16px' style={{marginLeft: '5px'}}> -- </StyledContent>
+                        </Card>
+                    }
+                    { this.props.currentDayAppointments.length > 0 &&
+                        <Card style={{ flex: 1 }}>
+                            <div className='Overview-TodayOverviewBlock'>
+                                <StyledTitle fontSize='25px'> Today's Overview: </StyledTitle>
+                                <StyledTitle fontSize='25px'> <span style={{ color: '#25AED9' }}> 2 </span> Completed Appointments </StyledTitle>
+                                <StyledTitle fontSize='25px'> <span style={{ color: '#FEBB26' }}> {this.props.currentDayAppointments.length} </span> Total Appointments </StyledTitle>
                             </div>
-                        </div>
-                        <div className='Overview-NextPatientBlock-Right'>
-                            <img src={doctorLogo} className='Overview-NextPatientAvator'/>
-                            <Button color="primary">
-                                More Details
-                            </Button>
-                        </div>
-                    </Card>
-                    <Card style={{ flex: 1 }}>
-                        <div className='Overview-TodayOverviewBlock'>
-                            <StyledTitle fontSize='25px'> Today's Overview: </StyledTitle>
-                            <StyledTitle fontSize='25px'> <span style={{ color: '#25AED9' }}> 2 </span> Completed Appointments </StyledTitle>
-                            <StyledTitle fontSize='25px'> <span style={{ color: '#FEBB26' }}> 10 </span> Total Appointments </StyledTitle>
-                        </div>
-                    </Card>
-                    {/* {appt} */}
+                        </Card>
+                    }
                 </div>
                 <div>
                 </div>
@@ -90,7 +88,7 @@ class Overview extends Component {
 
 const mapStateToProps = state => {
     return {
-        currentDayAppointments: state.currentDayAppointments,
+        currentDayAppointments: state.currentDayAppointments.currentDayAppointments,
         results: state.results,
         posts: state.posts.items,
     }
