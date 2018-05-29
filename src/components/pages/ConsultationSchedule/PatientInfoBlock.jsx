@@ -2,7 +2,10 @@ import React, {Component} from 'react';
 
 import './ConsultationSchedule.css';
 
+import { Link } from 'react-router-dom'
+
 import { Card } from '../../common/Card/Card';
+import { formatTime } from '../../common/formatTime';
 import { StyledTitle, StyledContent } from '../../common/StyledText/StyledText';
 
 import doctorLogo from '../../../assets/images/person1.jpg';
@@ -15,17 +18,19 @@ class PatientInfoBlock extends Component {
         
     }
 
-    toggleButton = (appointmentTime) => {
-        var time = new Date();
-        let timeNow = ("0" + time.getHours()).slice(-2) + ":" + ("0" + time.getMinutes()).slice(-2);
+    toggleStartSessionButton = (toggleStartSessionButton) => {
+        // var time = new Date();
+        // let timeNow = ("0" + time.getHours()).slice(-2) + ":" + ("0" + time.getMinutes()).slice(-2);
+
+        // let startSession = timeNow > appointmentTime;
     
-        let startSession = timeNow > appointmentTime;
-    
-        if (startSession) {
+        if (toggleStartSessionButton) {
             return (
-                <Button onClick={this.onStartSession} variant="raised" color="primary" style={{margin: '30px 0px 10px 0px'}}>
-                    Start Session
-                </Button>
+                <Link to='/patient'>
+                    <Button onClick={this.onStartSession} variant="raised" color="primary" style={{margin: '30px 0px 10px 0px'}}>
+                        Start Session
+                    </Button>
+                </Link>    
             )
         } else {
             return (
@@ -57,7 +62,7 @@ class PatientInfoBlock extends Component {
                             <StyledContent fontSize='16px' style={{marginLeft: '5px'}}> {this.props.patient.lastAppt} </StyledContent>
                         </div>
                     </div>
-                    {this.toggleButton(this.props.patient.appointmentTime)}
+                    {this.toggleStartSessionButton(this.props.toggleStartSessionButton)}
                 </div>
             </Card>
         )

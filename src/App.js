@@ -17,7 +17,7 @@ import Master from './components/pages/Master';
 
 const routes = [
     {
-        path: '/overview',
+        path: '/overview',  //append activeDoctor +
         sidebar: () => <Overview />,
         main: () => <Overview />
     },

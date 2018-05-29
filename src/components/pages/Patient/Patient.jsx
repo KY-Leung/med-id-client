@@ -5,7 +5,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 
 import './Patient.css';
-import  { InfoBlock, AppointmentBlock, ChiefComplaintBlock } from './Blocks';
+import { InfoBlock, AppointmentBlock, ChiefComplaintBlock } from './Blocks';
+import { MedicalHistoryList, MedicalHistoryDetail } from './MedicalHistoryList';
 
 //REDUX
 import { connect } from 'react-redux';
@@ -39,6 +40,7 @@ const styles = theme => ({
 class Patient extends Component {
 
     state = {
+        selectedMedicalHistoryBlock: {},
         value: 0,
     };
 
@@ -107,11 +109,16 @@ class Patient extends Component {
         this.setState({ value });
     };
 
+    onListItemClick = (selectedMedicalHistoryBlock) => {
+        this.setState({ selectedMedicalHistoryBlock });
+    }
+
     render() {
         const { classes } = this.props;
         const { value } = this.state;
 
-        let patientMedicalInfoBlocks = this.generatePatientMedicalInfoBlocksList(this.props.patientMedicalRecord);
+        let patientMedicalRecord = this.props.patientMedicalRecord;
+        let patientMedicalInfoBlocks = this.generatePatientMedicalInfoBlocksList(patientMedicalRecord);
         let patientAppointmentBlocks = this.generatePatientAppointmentBlocksList();
         let patientChiefComplaintList = this.generatePatientChiefComplaintList();
 
@@ -135,25 +142,36 @@ class Patient extends Component {
                     </Tabs>
                     </AppBar>
                     {value === 0 &&
-                        <div> 
+                        <div className='Patient-ConsultationContainer'> 
                             <div className='Patient-AppointmentContainer'>
                                 { patientAppointmentBlocks.map((block, index) => {
                                     return <AppointmentBlock title={block.title} content={block.content}/>
                                 })}
                             </div>
-                            <div className='Patient-sessionContainer'>
-                                <div className='Patient-chiefComplaintBlock'>
-                                    <StyledTitle fontSize='25px' style={{marginBottom: '50px'}}> Today's Chief Complaint </StyledTitle>
-                                    <div class = 'ChiefComplaintBlock'>
-                                        <StyledTitle fontSize='16px'> CC: </StyledTitle>
-                                        <StyledContent fontSize='16px' style={{marginLeft: '5px', marginBottom: '12px'}}> Flu / Cold Symptoms and Fever for a prolonged period ( >7 days ) </StyledContent>
+                            <div className='Patient-MedicalInfoContainer'>
+                                <div className='Patient-SessionContainer'>
+                                    <div className='Patient-ChiefComplaintBlock'>
+                                        <StyledTitle fontSize='25px' style={{marginBottom: '50px'}}> Today's Chief Complaint </StyledTitle>
+                                        <div class = 'ChiefComplaintBlock'>
+                                            <StyledTitle fontSize='16px'> CC: </StyledTitle>
+                                            <StyledContent fontSize='16px' style={{marginLeft: '5px', marginBottom: '12px'}}> Flu / Cold Symptoms and Fever for a prolonged period ( >7 days ) </StyledContent>
+                                        </div>
+                                        { patientChiefComplaintList.map((block, index) => {
+                                            return <ChiefComplaintBlock title={block.title} content={block.content}/>
+                                        })}
                                     </div>
-                                    { patientChiefComplaintList.map((block, index) => {
-                                        return <ChiefComplaintBlock title={block.title} content={block.content}/>
-                                    })}
+                                    <div className='Patient-DiagnosisBlock'>
+
+                                    </div>
                                 </div>
-                                <div className='Patient-diagnosisBlock'>
-                                    
+                                <div className='Patient-MedicalHistoryListBlock'>
+                                    <StyledTitle fontSize='25px' style={{padding: '30px'}}> Medical History </StyledTitle>
+                                    <MedicalHistoryList patientMedicalHistory={patientMedicalRecord.medicalHistory} onListItemClick={this.onListItemClick}/>
+                                </div>
+                                <div className='Patient-MedicalHistoryDetail'>
+                                    { this.state.selectedMedicalHistoryBlock.visitType &&
+                                        <MedicalHistoryDetail selectedMedicalHistoryBlock={this.state.selectedMedicalHistoryBlock } />
+                                    }
                                 </div>
                             </div>
                         </div>

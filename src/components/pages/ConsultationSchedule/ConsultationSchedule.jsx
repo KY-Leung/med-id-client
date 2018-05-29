@@ -52,8 +52,10 @@ class ConsultationSchedule extends Component {
                         </div>
                         <div className="ConsultationSchedule-PatientsContainer">
                             {currentDayAppointments.map((patient, index) => {
+                                let toggleStartSessionButton = (index == 0) ? true : false;
+
                                 if (patient.appointmentTime.substring(0, 2) == hour)
-                                    return <PatientInfoBlock patient={patient}/>
+                                    return <PatientInfoBlock patient={patient} toggleStartSessionButton={toggleStartSessionButton}/>
                             })}
                         </div>
                     </div>

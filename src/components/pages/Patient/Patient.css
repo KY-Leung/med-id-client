@@ -2,8 +2,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: 'space-between';
-    width: 100%;
+    justify-content: space-between;
     height: 200px;
     padding: 30px 40px;
     background-color: white;
@@ -39,6 +38,10 @@
     color: #727272;
 }
 
+.Patient-ConsultationContainer {
+    padding: 40px;
+}
+
 .Patient-AppointmentContainer {
     display: flex;
     flex-direction: row;
@@ -46,14 +49,19 @@
 }
 
 .AppointmentBlock {
-    margin: 40px 40px
+    padding: 0px 40px 40px 0px
 }
 
-.Patient-sessionContainer {
+.Patient-MedicalInfoContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.Patient-SessionContainer {
     display: flex;
     flex-direction: column;
-    width: 440px;
-    margin: 0px 40px;
+    flex: 1;
+    margin: 0px 40px 0px 0px;
     padding: 30px;
     background-color: white;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.25);
@@ -63,4 +71,31 @@
     display: flex;
     flex-direction: row;
     margin: 3px 0px;
+}
+
+.Patient-MedicalHistoryListBlock {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    width: 620px;
+    background-color: white;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.25);
+}
+
+.MedicalHistoryList {
+    background-color: white !important;
+}
+
+.ListItemSecondaryField {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Patient-MedicalHistoryDetail {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.25)
 }
