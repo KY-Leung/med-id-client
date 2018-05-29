@@ -42,7 +42,7 @@ export const MedicalHistoryDetail = (props) => {
     let selected = props.selectedMedicalHistoryBlock;
     return (
         <div className='MedicalHistoryDetail'>
-            <StyledTitle fontSize='25px' style={{padding: '30px'}}> {selected.visitType} </StyledTitle>
+            <StyledTitle fontSize='25px' style={{margin: '30px'}}> {selected.visitType} </StyledTitle>
             <ItemBlock title='Referee' content={selected.referee}></ItemBlock>
             <ItemBlock title='Date & Time' content={selected.dateTime}></ItemBlock>
             <ItemBlock title='Chief Complaint' content={selected.chiefComplaint}></ItemBlock>
@@ -54,7 +54,7 @@ export const MedicalHistoryDetail = (props) => {
 
 export const ItemsBlock = (props) => {
     return (
-        <div style={{ margin: '20px'}}>
+        <div style={{ margin: '20px 30px'}}>
             <StyledTitle fontSize='18px'> {props.title} </StyledTitle>
             { props.items && props.items.map((item, index) => {
                 return <StyledContent fontSize='18px' style={{}}> {item} </StyledContent>
@@ -65,7 +65,7 @@ export const ItemsBlock = (props) => {
 
 export const ItemBlock = (props) => {
     return (
-        <div style={{ margin: '20px'}}>
+        <div style={{ margin: '20px 30px'}}>
             <StyledTitle fontSize='18px'> {props.title} </StyledTitle>
             <StyledContent fontSize='18px' style={{}}> {props.content} </StyledContent>
         </div>

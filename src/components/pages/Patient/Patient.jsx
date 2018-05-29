@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 
 import './Patient.css';
-import { InfoBlock, AppointmentBlock, ChiefComplaintBlock } from './Blocks';
+import { InfoBlock, AppointmentBlock, ChiefComplaintBlock, DiagnosisBlock } from './Blocks';
 import { MedicalHistoryList, MedicalHistoryDetail } from './MedicalHistoryList';
 
 //REDUX
@@ -41,6 +41,12 @@ class Patient extends Component {
 
     state = {
         selectedMedicalHistoryBlock: {},
+        newConsultation: {
+            diagnosis: "(no entry)",
+            prescription: [],
+            referralNotes: "(no entry)"
+        },
+        startDiagnosis: false,
         value: 0,
     };
 
@@ -113,14 +119,36 @@ class Patient extends Component {
         this.setState({ selectedMedicalHistoryBlock });
     }
 
+    onStartDiagnosisClick = () => {
+        debugger;
+        this.setState({ startDiagnosis: true });
+    }
+
     render() {
         const { classes } = this.props;
-        const { value } = this.state;
+        const { selectedMedicalHistoryBlock, newConsultation, startDiagnosis, value } = this.state;
 
         let patientMedicalRecord = this.props.patientMedicalRecord;
         let patientMedicalInfoBlocks = this.generatePatientMedicalInfoBlocksList(patientMedicalRecord);
         let patientAppointmentBlocks = this.generatePatientAppointmentBlocksList();
         let patientChiefComplaintList = this.generatePatientChiefComplaintList();
+
+        const renderContent = startDiagnosis ? (
+            <div className='Patient-StartDiagnosisContainer'>
+            </div>
+        ) : (
+            <div className='Patient-MedicalHistoryContainer'>
+                <div className='Patient-MedicalHistoryListBlock'>
+                    <StyledTitle fontSize='25px' style={{padding: '30px'}}> Medical History </StyledTitle>
+                    <MedicalHistoryList patientMedicalHistory={patientMedicalRecord.medicalHistory} onListItemClick={this.onListItemClick}/>
+                </div>
+                <div className='Patient-MedicalHistoryDetail'>
+                    { selectedMedicalHistoryBlock.visitType &&
+                        <MedicalHistoryDetail selectedMedicalHistoryBlock={selectedMedicalHistoryBlock } />
+                    }
+                </div>
+            </div>    
+        );
 
         return (
             <div>
@@ -160,19 +188,9 @@ class Patient extends Component {
                                             return <ChiefComplaintBlock title={block.title} content={block.content}/>
                                         })}
                                     </div>
-                                    <div className='Patient-DiagnosisBlock'>
-
-                                    </div>
+                                    <DiagnosisBlock newConsultation={newConsultation} onStartDiagnosisClick={this.onStartDiagnosisClick}/>
                                 </div>
-                                <div className='Patient-MedicalHistoryListBlock'>
-                                    <StyledTitle fontSize='25px' style={{padding: '30px'}}> Medical History </StyledTitle>
-                                    <MedicalHistoryList patientMedicalHistory={patientMedicalRecord.medicalHistory} onListItemClick={this.onListItemClick}/>
-                                </div>
-                                <div className='Patient-MedicalHistoryDetail'>
-                                    { this.state.selectedMedicalHistoryBlock.visitType &&
-                                        <MedicalHistoryDetail selectedMedicalHistoryBlock={this.state.selectedMedicalHistoryBlock } />
-                                    }
-                                </div>
+                                {renderContent}
                             </div>
                         </div>
                     }
