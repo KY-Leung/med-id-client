@@ -1,0 +1,66 @@
+.Patient-InfoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: 'space-between';
+    width: 100%;
+    height: 200px;
+    padding: 30px 40px;
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.Patient-PatientAvatar {
+    border-radius: 50%;
+    height: 185px;
+    width: 185px;
+}
+
+.InfoBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 30px;
+}
+
+.Patient-MedicalRecordsContainer {
+    flex-grow: 1;
+}
+
+.Patient-AppBar {
+    background-color: white !important;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.25) !important;
+}
+
+.Patient-AppBarTab {
+    font-weight: 500;
+    font-family: Roboto;
+    text-transform: lowercase !important;
+    color: #727272;
+}
+
+.Patient-AppointmentContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.AppointmentBlock {
+    margin: 40px 40px
+}
+
+.Patient-sessionContainer {
+    display: flex;
+    flex-direction: column;
+    width: 440px;
+    margin: 0px 40px;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.25);
+}
+
+.ChiefComplaintBlock {
+    display: flex;
+    flex-direction: row;
+    margin: 3px 0px;
+}

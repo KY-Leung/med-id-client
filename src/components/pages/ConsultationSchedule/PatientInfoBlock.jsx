@@ -11,6 +11,10 @@ import Button from '@material-ui/core/Button';
 
 class PatientInfoBlock extends Component {
     
+    onStartSession = (event) => {
+        
+    }
+
     toggleButton = (appointmentTime) => {
         var time = new Date();
         let timeNow = ("0" + time.getHours()).slice(-2) + ":" + ("0" + time.getMinutes()).slice(-2);
@@ -19,7 +23,7 @@ class PatientInfoBlock extends Component {
     
         if (startSession) {
             return (
-                <Button variant="raised" color="primary" style={{margin: '30px 0px 10px 0px'}}>
+                <Button onClick={this.onStartSession} variant="raised" color="primary" style={{margin: '30px 0px 10px 0px'}}>
                     Start Session
                 </Button>
             )

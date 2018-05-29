@@ -5,7 +5,6 @@ import './ConsultationSchedule.css';
 import PatientInfoBlock from './PatientInfoBlock';
 import { StyledTitle, StyledContent } from '../../common/StyledText/StyledText';
 
-
 //REDUX
 import { connect } from 'react-redux';
 import { getDoctorAppointments } from '../../../actions/getDoctorAppointments';
