@@ -30,7 +30,7 @@ class Overview extends Component {
         let nextPatient = this.props.currentDayAppointments[0];
 
         let timelineData = this.props.currentDayAppointments.map((val, index, arr) => {
-            return [val.patientName, val.appointmentTime, val.appointmentEndTime]
+            return [val.patientName, val.appointmentStartTime, val.appointmentEndTime]
         })
         
         return (
