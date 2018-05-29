@@ -49,3 +49,10 @@
     height: 100px;
     width: 100px;
 }
+
+.Overview-Timeline {
+    display: flex;
+    flex-direction: row;
+    height: 230px;
+    margin: 50px 50px 32px 50px;
+}
