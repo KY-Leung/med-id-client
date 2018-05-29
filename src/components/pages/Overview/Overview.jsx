@@ -29,60 +29,8 @@ class Overview extends Component {
     render() {
         let nextPatient = this.props.currentDayAppointments[0];
 
-        //////////////////////////////////////// TEMPORARY //////////////////////////////////////////////
-        let appointments = {}
-        appointments["current_day_appointments"] = [];
-      
-        let names = ["Jacky", "John", "Oliver", "Benjamin", "James"];
-        const details = ["34Y/Female", "30Y/Male", "25Y/Male", "20Y/Male", "35Y/Male"];
-        const durationInMinutes = [20, 15, 15, 15, 30];
-        const minutesBeforeNext = [60, 10, 15, 25, 20];
-        const lastAppts = ["10/13", "12/15", "-", "-", "-"]
-      
-        const currentTimeWithAddedMinutes = (minutes) => {
-          let date = new Date();
-          date.setMinutes(date.getMinutes() + minutes);
-          return date;
-        }
-      
-         const newPatientData = {
-            patientName: "Cecilia",
-            patientDetails: "21Y/Female",
-            appointmentTime: currentTimeWithAddedMinutes(0),
-            appointmentEndTime : currentTimeWithAddedMinutes(30),
-            visitStatus: "Walk-in",
-            lastAppt: "-"
-          }
-          appointments["current_day_appointments"].push(newPatientData);
-      
-        let minutesOffset = 0;
-        for (const i in names) {
-          minutesOffset += minutesBeforeNext[i];
-          let patientName = names[i];
-          let patientDetails = details[i];
-          let lastAppt = lastAppts[i];
-          let appointmentTime = currentTimeWithAddedMinutes(minutesOffset);
-          minutesOffset += durationInMinutes[i];
-          let appointmentEndTime = currentTimeWithAddedMinutes(minutesOffset);
-
-          let data = {
-            patientName: patientName,
-            patientDetails: patientDetails,
-            appointmentTime: appointmentTime,
-            appointmentEndTime : appointmentEndTime,
-            visitStatus: "Appointment",
-            lastAppt: lastAppt
-          }
-          appointments["current_day_appointments"].push(data);
-        }
-        ////////////////////////////////////////////////////////////////////////////////////////////
-
-        let timelineData = appointments.current_day_appointments.map((val, index, arr) => {
-            // return element to new Array
-            let name = val.patientName
-            let startTime = val.appointmentTime
-            let endTime = val.appointmentEndTime
-            return [name, startTime, endTime]
+        let timelineData = this.props.currentDayAppointments.map((val, index, arr) => {
+            return [val.patientName, val.appointmentTime, val.appointmentEndTime]
         })
         
         return (
