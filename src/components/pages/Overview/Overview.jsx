@@ -78,7 +78,7 @@ class Overview extends Component {
                     </Card>
                 </div>
                 <div className='Overview-Timeline'>
-                    <Timeline data={timelineData} />
+                    <Timeline colors={["#25AED9"]} data={timelineData} />
                 </div>
             </div>
         )
