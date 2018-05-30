@@ -1,11 +1,16 @@
 import constants from '../actions/constants';
 
 export const getDoctorAppointments = () => dispatch => {
-    fetch('http://med-id-server.herokuapp.com/doctor/1/appointment')
-        .then(data => data.json())
-        .then(json =>
-            dispatch(gotDoctorAppointmentsSuccess(json)
-        )
+    fetch('http://med-id-server.herokuapp.com/doctor/1/appointment', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(data => data.json())
+    .then(json =>
+        dispatch(gotDoctorAppointmentsSuccess(json))
     )
     .catch(err => dispatch(gotDoctorAppointmentsFailure(err)))
 }

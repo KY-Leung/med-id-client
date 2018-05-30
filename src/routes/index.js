@@ -13,7 +13,7 @@ const App = () => {
             <Route path="/overview" component={Overview} />
             <Route path="/consultation-schedule" component={ConsultationSchedule} />
             <Route path="/patient" component={Patient} />
-            <Redirect from="/" to ="/overview" />
+            <Redirect from="/" to ="/patient" />
         </Switch> 
     </BrowserRouter>
   );

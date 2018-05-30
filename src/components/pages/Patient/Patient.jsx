@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import './Patient.css';
 import { InfoBlock, AppointmentBlock, ChiefComplaintBlock, DiagnosisBlock } from './Blocks';
 import { MedicalHistoryList, MedicalHistoryDetail } from './MedicalHistoryList';
+import DiagnosisFormContainer from './DiagnosisFormContainer';
 
 //REDUX
 import { connect } from 'react-redux';
@@ -120,8 +121,16 @@ class Patient extends Component {
     }
 
     onStartDiagnosisClick = () => {
-        debugger;
         this.setState({ startDiagnosis: true });
+    }
+
+    onSaveDiagnosis = (items) => {
+        this.setState({ newConsultation: {
+            diagnosis: items.diagnosis,
+            prescription: items.prescription,
+            referralNotes: items.referralNotes
+        }, startDiagnosis: false
+        });
     }
 
     render() {
@@ -134,12 +143,11 @@ class Patient extends Component {
         let patientChiefComplaintList = this.generatePatientChiefComplaintList();
 
         const renderContent = startDiagnosis ? (
-            <div className='Patient-StartDiagnosisContainer'>
-            </div>
+            <DiagnosisFormContainer newConsultation={this.state.newConsultation} onSaveDiagnosis={this.onSaveDiagnosis}/>
         ) : (
             <div className='Patient-MedicalHistoryContainer'>
                 <div className='Patient-MedicalHistoryListBlock'>
-                    <StyledTitle fontSize='25px' style={{padding: '30px'}}> Medical History </StyledTitle>
+                    <StyledTitle fontSize='18px' style={{padding: '30px'}}> Medical History </StyledTitle>
                     <MedicalHistoryList patientMedicalHistory={patientMedicalRecord.medicalHistory} onListItemClick={this.onListItemClick}/>
                 </div>
                 <div className='Patient-MedicalHistoryDetail'>
@@ -179,7 +187,7 @@ class Patient extends Component {
                             <div className='Patient-MedicalInfoContainer'>
                                 <div className='Patient-SessionContainer'>
                                     <div className='Patient-ChiefComplaintBlock'>
-                                        <StyledTitle fontSize='25px' style={{marginBottom: '50px'}}> Today's Chief Complaint </StyledTitle>
+                                        <StyledTitle fontSize='18px' style={{marginBottom: '50px'}}> Today's Chief Complaint </StyledTitle>
                                         <div class = 'ChiefComplaintBlock'>
                                             <StyledTitle fontSize='16px'> CC: </StyledTitle>
                                             <StyledContent fontSize='16px' style={{marginLeft: '5px', marginBottom: '12px'}}> Flu / Cold Symptoms and Fever for a prolonged period ( >7 days ) </StyledContent>

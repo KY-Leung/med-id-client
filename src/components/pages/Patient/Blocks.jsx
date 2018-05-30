@@ -47,7 +47,9 @@ export const DiagnosisBlock = (props) => {
                 </div>
                 <div style={{marginTop: '60px'}}>
                     <StyledTitle fontSize='18px'> Prescription </StyledTitle>
-                    <StyledContent fontSize='18px' style={{marginTop: '8px'}}> {newConsultation.prescription} </StyledContent>
+                    { newConsultation.prescription.map((item, index) => {
+                        return <StyledContent key={index} fontSize='18px' style={{marginTop: '8px'}}> {item} </StyledContent>
+                    })}
                 </div>
                 <div style={{marginTop: '60px'}}>
                     <StyledTitle fontSize='18px'> Referral Notes </StyledTitle>
