@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { Link } from 'react-router-dom'
+import { StyledTitle, StyledContent } from '../../common/StyledText/StyledText';
+
+import './Master.css';
+import companyLogo from '../../../assets/images/company_logo.png';
+import companyLogoWithText from '../../../assets/images/company_logo_with_text.png';
 
 //Material-UI App bar
 import 'typeface-roboto'
@@ -23,7 +28,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import RandomIcon from '@material-ui/icons/Inbox';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
-const drawerWidth = 240;
+const drawerWidth = 360;
 
 const styles = theme => ({
   root: {
@@ -35,6 +40,7 @@ const styles = theme => ({
   },
   appBar: {
     backgroundColor: '#1C8DB1',
+    width: `calc(100% - ${theme.spacing.unit * 9}px)`,
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
@@ -132,12 +138,26 @@ class Master extends React.Component {
                 paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),
             }}
             open={this.state.open}
-        >
-            <div className={classes.toolbar}>
-                <IconButton onClick={this.handleDrawerClose}>
-                    {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-                </IconButton>
-            </div>
+        >   
+            { this.state.open && 
+                <div className='Master-TopLeftContainer'>
+                    <div className='Master-CompanyLogoContainer' >
+                        <img style={{ height: '80px', width: '80px' }} src={companyLogo} />
+                        <StyledTitle fontSize='18px' style={{ color: '#024B6E' }}> G Canyon Urgent Care </StyledTitle>
+                        <StyledContent fontSize='14px' style={{ color: '#024B6E', marginTop: '18px'}}> G Canyon Urgent Care Patient Dashboard </StyledContent>  
+                    </div>
+                    <div>
+                        <div className={classes.toolbar}>
+                            <IconButton onClick={this.handleDrawerClose}>
+                                {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                            </IconButton>
+                        </div>
+                    </div>  
+                </div>
+            }
+            { !this.state.open &&
+                <img style={{ height: '70px', width: '50px', margin: '30px 0px 30px 10px'}} src={companyLogoWithText} />
+            }
             <List component="nav">
                 <ListItem button component={Link} to={'/doctor/' + doctorId + '/overview'}>
                     <ListItemIcon>

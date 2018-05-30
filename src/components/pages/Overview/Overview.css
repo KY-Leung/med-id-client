@@ -52,7 +52,10 @@
 
 .Overview-Timeline {
     display: flex;
-    flex-direction: row;
-    height: 230px;
+    flex-direction: column;
+    height: 100%;
     margin: 50px 50px 32px 50px;
+    padding: 50px;
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
 }

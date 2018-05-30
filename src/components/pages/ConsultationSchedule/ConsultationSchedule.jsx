@@ -13,7 +13,7 @@ class ConsultationSchedule extends Component {
 
     componentWillMount() {
         let doctorId = window.location.pathname.substring(8,9);
-        this.props.getDoctorAppointments(doctorId);
+        this.props.getDoctorAppointments();
     }
 
     getListOfHours(currentDayAppointments) {

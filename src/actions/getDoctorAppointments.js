@@ -1,6 +1,7 @@
 import constants from '../actions/constants';
 
-export const getDoctorAppointments = (doctorId) => dispatch => {
+export const getDoctorAppointments = () => dispatch => {
+    let doctorId = window.location.pathname.substring(8,9);
     fetch('http://med-id-server.herokuapp.com/doctor/' + doctorId + '/appointment', {
         method: 'GET',
         headers: {

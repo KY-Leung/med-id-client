@@ -24,12 +24,12 @@ class Overview extends Component {
 
 
     componentWillMount() {
-        this.props.getDoctorAppointments(this.state.doctorId);
+        this.props.getDoctorAppointments();
     }
 
     componentWillReceiveProps(nextProps) {
         setTimeout(function () {
-            nextProps.getDoctorAppointments(nextProps.doctorId);
+            nextProps.getDoctorAppointments();
         }, 3000);
     }
 
@@ -85,6 +85,7 @@ class Overview extends Component {
                     </Card>
                 </div>
                 <div className='Overview-Timeline'>
+                    <StyledTitle fontSize='25px' style={{marginBottom: '50px'}}> Today's Appointments </StyledTitle>
                     <Timeline colors={["#25AED9"]} data={timelineData} />
                 </div>
             </div>
