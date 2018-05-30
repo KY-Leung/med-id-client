@@ -43,7 +43,7 @@ export const DiagnosisBlock = (props) => {
             <div className='Blocks-DiagnosisSnapshot'>
                 <div>
                     <StyledTitle fontSize='18px'> Diagnosis </StyledTitle>
-                    <StyledContent fontSize='18px' style={{marginTop: '8px'}}> {newConsultation.diagnosis} </StyledContent>
+                    <StyledContent fontSize='18px' style={{marginTop: '8px'}}> {newConsultation.diagnosis.substring(0, 100) + '...'} </StyledContent>
                 </div>
                 <div style={{marginTop: '60px'}}>
                     <StyledTitle fontSize='18px'> Prescription </StyledTitle>
@@ -53,7 +53,7 @@ export const DiagnosisBlock = (props) => {
                 </div>
                 <div style={{marginTop: '60px'}}>
                     <StyledTitle fontSize='18px'> Referral Notes </StyledTitle>
-                    <StyledContent fontSize='18px' style={{marginTop: '8px'}}> {newConsultation.referralNotes} </StyledContent>
+                    <StyledContent fontSize='18px' style={{marginTop: '8px'}}> {newConsultation.referralNotes.substring(0, 100) + '...'} </StyledContent>
                 </div>
             </div>
             <Button className='Blocks-AddDiagnosisButton' variant="raised" color="primary" onClick={() => onStartDiagnosisClick()}>

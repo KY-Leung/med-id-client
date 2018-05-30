@@ -35,7 +35,7 @@ class Overview extends Component {
         
         return (
             <div>
-                <h1 className='Overview-WelcomeMessage'> Welcome to HELL! </h1>
+                <h1 className='Overview-WelcomeMessage'> Welcome Back! </h1>
                 <div className='Overview-Summary' >
                     <div className='Overview-DoctorInfoBlock'>
                         <img src={doctorLogo} className='Overview-DoctorAvatar' />
