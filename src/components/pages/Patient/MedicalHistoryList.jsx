@@ -40,6 +40,7 @@ export const MedicalHistoryList = (props) => {
 
 export const MedicalHistoryDetail = (props) => {
     let selected = props.selectedMedicalHistoryBlock;
+    debugger;
     return (
         <div className='MedicalHistoryDetail'>
             <StyledTitle fontSize='25px' style={{margin: '30px'}}> {selected.visitType} </StyledTitle>
@@ -48,6 +49,9 @@ export const MedicalHistoryDetail = (props) => {
             <ItemBlock title='Chief Complaint' content={selected.chiefComplaint}></ItemBlock>
             <ItemBlock title='Diagnosis' content={selected.diagnosis}></ItemBlock>
             <ItemsBlock title='Prescription' items={selected.prescription}></ItemsBlock>
+            { selected.referralNotes &&
+                <ItemBlock title='Referral Notes' content={selected.referralNotes}></ItemBlock>
+            }
         </div>
     )
 }

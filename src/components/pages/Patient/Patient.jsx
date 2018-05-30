@@ -44,9 +44,9 @@ class Patient extends Component {
     state = {
         selectedMedicalHistoryBlock: {},
         newConsultation: {
-            diagnosis: "Final Diagnosis : 21 years old, female, complains of stuffy nose and blocked ear since 7th May of 2018. Has made 2 visits to other healthcare facilities regarding this condition prior to today's consultation. Conditions and symptoms have not resided. - Discharge from the left ear, hearing loss - Diminished hearing with slight vertigo, oral decongestion did not help after 2.5weeks - Nasal obstruction (unilateral), treated with Zyrtec but to no avail, dosage to be increased for treatment - Nasal discharge sometimes bloody, inflammation still present, new course of antibiotics administered - Refer to otolaryngologist for further check-up.",
-            prescription: ["Zyrtec, 10mg. 2 times/day", "Dalacin® C, 180mg. 2 Cap/day"],
-            referralNotes: "Referral to : Specialist Consulting Clinics, The Pastorine Hospital Reason for patient referral : Persistent epistaxis, blocked ear since 7th May 2018, discharge from the left ear, hearing loss. Diminished hearing with slight vertigo. Nasal obstruction (unilateral). Frontal sinusitis with persistent frontal headache). Mitigation measures include extension of antibiotics course and double Zyrtec dosage. Flagged for urgent attention. To be discussed with ENT Registrar on call to obtain appropriate prioritisation and a referral letter faxed to department."
+            diagnosis: "",
+            prescription: [],
+            referralNotes: ""
         },
         startDiagnosis: false,
         value: 0,
