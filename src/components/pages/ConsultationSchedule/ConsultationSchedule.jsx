@@ -12,7 +12,8 @@ import { getDoctorAppointments } from '../../../actions/getDoctorAppointments';
 class ConsultationSchedule extends Component {
 
     componentWillMount() {
-        this.props.getDoctorAppointments();
+        let doctorId = window.location.pathname.substring(8,9);
+        this.props.getDoctorAppointments(doctorId);
     }
 
     getListOfHours(currentDayAppointments) {

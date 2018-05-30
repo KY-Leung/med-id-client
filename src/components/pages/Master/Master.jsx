@@ -93,6 +93,7 @@ const styles = theme => ({
 
 class Master extends React.Component {
     state = {
+        doctorId: window.location.pathname.substring(8,9),
         open: true,
     };
 
@@ -106,6 +107,7 @@ class Master extends React.Component {
 
     render() {
         const { classes, theme } = this.props;
+        const { doctorId } = this.state;
 
     return (
         <div className={classes.root}>
@@ -137,14 +139,14 @@ class Master extends React.Component {
                 </IconButton>
             </div>
             <List component="nav">
-                <ListItem button component={Link} to='/overview'>
+                <ListItem button component={Link} to={'/doctor/' + doctorId + '/overview'}>
                     <ListItemIcon>
                         {/* Overview SVG here */}
                         <RandomIcon />
                     </ListItemIcon>
                     <ListItemText primary="Overview" />
                 </ListItem>
-                <ListItem button component={Link} to='/consultation-schedule'>
+                <ListItem button component={Link} to={'/doctor/' + doctorId + '/consultation-schedule'}>
                     <ListItemIcon>
                         {/* Consultation Schedule SVG here */}
                         <RandomIcon />

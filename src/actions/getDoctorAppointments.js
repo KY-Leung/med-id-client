@@ -1,7 +1,7 @@
 import constants from '../actions/constants';
 
-export const getDoctorAppointments = () => dispatch => {
-    fetch('http://med-id-server.herokuapp.com/doctor/1/appointment', {
+export const getDoctorAppointments = (doctorId) => dispatch => {
+    fetch('http://med-id-server.herokuapp.com/doctor/' + doctorId + '/appointment', {
         method: 'GET',
         headers: {
             'Accept': 'application/json',

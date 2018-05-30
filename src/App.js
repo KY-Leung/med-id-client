@@ -17,12 +17,12 @@ import Master from './components/pages/Master';
 
 const routes = [
     {
-        path: '/overview',  //append activeDoctor +
+        path: '/doctor/:doctorId/overview',  //append activeDoctor +
         sidebar: () => <Overview />,
         main: () => <Overview />
     },
     {
-        path: '/consultation-schedule',
+        path: '/doctor/:doctorId/consultation-schedule',
         sidebar: () => <ConsultationSchedule />,
         main: () => <ConsultationSchedule />
     },

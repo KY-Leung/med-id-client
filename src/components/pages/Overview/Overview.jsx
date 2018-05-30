@@ -18,9 +18,13 @@ import doctorLogo from '../../../assets/images/person1.jpg';
 import Button from '@material-ui/core/Button';
 
 class Overview extends Component {
+    state = {
+        doctorId: window.location.pathname.substring(8,9)
+    };
+
 
     componentWillMount() {
-        this.props.getDoctorAppointments();
+        this.props.getDoctorAppointments(this.state.doctorId);
     }
 
     componentWillReceiveProps(nextProps) {
