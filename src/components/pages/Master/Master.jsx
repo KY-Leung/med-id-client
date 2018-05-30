@@ -8,6 +8,10 @@ import { StyledTitle, StyledContent } from '../../common/StyledText/StyledText';
 import './Master.css';
 import companyLogo from '../../../assets/images/company_logo.png';
 import companyLogoWithText from '../../../assets/images/company_logo_with_text.png';
+import calendarIcon from '../../../assets/icons/calendar.png';
+import stethoscopeIcon from '../../../assets/icons/stethoscope.png';
+import groupIcon from '../../../assets/icons/group.png';
+
 
 //Material-UI App bar
 import 'typeface-roboto'
@@ -161,22 +165,19 @@ class Master extends React.Component {
             <List component="nav">
                 <ListItem button component={Link} to={'/doctor/' + doctorId + '/overview'}>
                     <ListItemIcon>
-                        {/* Overview SVG here */}
-                        <RandomIcon />
+                        <img src={stethoscopeIcon} style={{ height: '25px', width: '25px'}}/>
                     </ListItemIcon>
                     <ListItemText primary="Overview" />
                 </ListItem>
                 <ListItem button component={Link} to={'/doctor/' + doctorId + '/consultation-schedule'}>
                     <ListItemIcon>
-                        {/* Consultation Schedule SVG here */}
-                        <RandomIcon />
+                        <img src={calendarIcon} style={{ height: '25px', width: '25px'}}/>
                     </ListItemIcon>
                     <ListItemText primary="Consultation Schedule" />
                 </ListItem>
                 <ListItem button component={Link} to='/patient'>
                     <ListItemIcon>
-                        {/* Account SVG here */}
-                        <RandomIcon />
+                        <img src={groupIcon} style={{ height: '25px', width: '25px'}}/>
                     </ListItemIcon>
                     <ListItemText primary="Account" />
                 </ListItem>
