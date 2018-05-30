@@ -40,7 +40,7 @@ export const MedicalHistoryList = (props) => {
 
 export const MedicalHistoryDetail = (props) => {
     let selected = props.selectedMedicalHistoryBlock;
-    debugger;
+
     return (
         <div className='MedicalHistoryDetail'>
             <StyledTitle fontSize='25px' style={{margin: '30px'}}> {selected.visitType} </StyledTitle>

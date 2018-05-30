@@ -28,6 +28,9 @@ class Overview extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        setTimeout(function () {
+            nextProps.getDoctorAppointments(nextProps.doctorId);
+        }, 3000);
     }
 
     render() {
