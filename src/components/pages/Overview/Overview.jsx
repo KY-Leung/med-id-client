@@ -44,13 +44,9 @@ class Overview extends Component {
 
     render() {
         let nextPatient = this.props.currentDayAppointments[0];
-
         let timelineData = this.props.currentDayAppointments.map((val, index, arr) => {
             return [val.patientName, val.appointmentStartTime, val.appointmentEndTime]
         })
-
-        let patientAvatar = '../../../assets/portrait/cecilia.jpg';
-        debugger;
 
         return (
             <div>
@@ -90,7 +86,7 @@ class Overview extends Component {
                         {nextPatient.patientName == 'Cecilia' &&
                             <Avatar className='Overview-NextPatientAvator' src={ceciliaLogo}/>
                         }
-                        {nextPatient.patientName == 'jacky' &&
+                        {nextPatient.patientName == 'Jacky' &&
                             <Avatar className='Overview-NextPatientAvator' src={jackyLogo}/>
                         }
                             <Button color="primary">
