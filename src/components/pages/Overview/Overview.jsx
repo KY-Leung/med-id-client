@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import './Overview.css';
 import { StyledTitle, StyledContent } from '../../common/StyledText/StyledText';
+import { getAvatarMapping } from '../../common/getAvatarMapping';
 import { Card } from '../../common/Card/Card';
 import { Timeline } from 'react-chartkick';
 
@@ -14,16 +15,23 @@ import { fetchPosts } from '../../../actions/postActions';
 import { getDoctorAppointments } from '../../../actions/getDoctorAppointments';
 
 import Avatar from '@material-ui/core/Avatar';
-import doctorLogo from '../../../assets/images/person1.jpg';
+import doctor1Logo from '../../../assets/portrait/1.jpg';
+import doctor2Logo from '../../../assets/portrait/2.jpg';
 import Button from '@material-ui/core/Button';
+
+
 
 class Overview extends Component {
     state = {
-        doctorId: window.location.pathname.substring(8,9)
+        doctorId: window.location.pathname.substring(8,9),
+        doctorInfo: {}
     };
 
 
     componentWillMount() {
+        this.setState({
+            doctorInfo: getAvatarMapping(this.state.doctorId)
+        })
         this.props.getDoctorAppointments();
     }
 
@@ -39,16 +47,21 @@ class Overview extends Component {
         let timelineData = this.props.currentDayAppointments.map((val, index, arr) => {
             return [val.patientName, val.appointmentStartTime, val.appointmentEndTime]
         })
-        
+
         return (
             <div>
                 <h1 className='Overview-WelcomeMessage'> Welcome Back! </h1>
                 <div className='Overview-Summary' >
                     <div className='Overview-DoctorInfoBlock'>
-                        <img src={doctorLogo} className='Overview-DoctorAvatar' />
+                        {this.state.doctorId == '1' &&
+                            <Avatar className='Overview-DoctorAvatar' src={doctor1Logo}/>
+                        }
+                        {this.state.doctorId == '2' &&
+                            <Avatar className='Overview-DoctorAvatar' src={doctor2Logo}/>
+                        }
                         <div className='Overview-DoctorInfo' >
-                            <StyledTitle fontSize='25px'> Dr. John House </StyledTitle>
-                            <StyledContent fontSize='18px' style={{marginTop: '18px'}}> Resident General Practioner </StyledContent>  
+                            <StyledTitle fontSize='25px'> {this.state.doctorInfo.name} </StyledTitle>
+                            <StyledContent fontSize='18px' style={{marginTop: '18px'}}> {this.state.doctorInfo.title} </StyledContent>  
                         </div>
                     </div>
                     <Card style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', flex: 1, padding: '30px 40px' }}>
@@ -70,7 +83,7 @@ class Overview extends Component {
                             </div>
                         </div>
                         <div className='Overview-NextPatientBlock-Right'>
-                            <img src={doctorLogo} className='Overview-NextPatientAvator'/>
+                            <img src={doctor1Logo} className='Overview-NextPatientAvator'/>
                             <Button color="primary">
                                 More Details
                             </Button>
