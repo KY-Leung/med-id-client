@@ -6,10 +6,10 @@ export const getAvatarMapping = (value) => {
 
     switch(value){
         case '1':
-            avatarInfo = {'name': 'Dr. John House', 'title': 'Dr. John House'};
+            avatarInfo = {'name': 'Dr. John House', 'title': 'Resident General Practitioner'};
             break;
         case '2':
-            avatarInfo = {'name': 'Dr. Alicia Banks', 'title': 'Dr. Alicia Banks'};
+            avatarInfo = {'name': 'Dr. Alicia Banks', 'title': 'Resident ENT Specialist'};
             break;
         default:
             avatarInfo = {};
