@@ -16,10 +16,10 @@ hr {
     margin: 58px 40px;
 }
 
-.ConsultationSchedule-DoctorAvatar {
+.ConsultationSchedule-PatientAvatar {
     border-radius: 10%;
-    height: 180px;
-    width: 180px;
+    height: 180px !important;
+    width: 180px !important;
 }
 
 .ConsultationSchedule-PatientsContainer {

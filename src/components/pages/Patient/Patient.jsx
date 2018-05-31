@@ -15,7 +15,8 @@ import { getPatientMedicalRecord } from '../../../actions/getPatientMedicalRecor
 import { postPatientMedicalRecord } from '../../../actions/postPatientMedicalRecord';
 
 import { StyledTitle, StyledContent } from '../../common/StyledText/StyledText';
-import doctorLogo from '../../../assets/images/person1.jpg';
+import Avatar from '@material-ui/core/Avatar';
+import patientAvatar from '../../../assets/portrait/cecilia.jpg';
 import Button from '@material-ui/core/Button';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -218,7 +219,7 @@ class Patient extends Component {
         return (
             <div>
                 <div className='Patient-InfoContainer'>
-                    <img src={doctorLogo} className='Patient-PatientAvatar' />
+                    <Avatar className='Patient-PatientAvatar' src={patientAvatar}/>
                     { patientMedicalInfoBlocks.map((block, index) => {
                         return <InfoBlock title={block.title} items={block.items}/>
                     })}

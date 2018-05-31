@@ -10,9 +10,8 @@
 }
 
 .Patient-PatientAvatar {
-    border-radius: 50%;
-    height: 185px;
-    width: 185px;
+    height: 185px !important;
+    width: 185px !important;
 }
 
 .InfoBlock {

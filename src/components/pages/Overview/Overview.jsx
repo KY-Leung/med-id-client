@@ -19,7 +19,8 @@ import doctor1Logo from '../../../assets/portrait/1.jpg';
 import doctor2Logo from '../../../assets/portrait/2.jpg';
 import Button from '@material-ui/core/Button';
 
-
+import ceciliaLogo from '../../../assets/portrait/cecilia.jpg';
+import jackyLogo from '../../../assets/portrait/Jacky.jpg';
 
 class Overview extends Component {
     state = {
@@ -47,6 +48,9 @@ class Overview extends Component {
         let timelineData = this.props.currentDayAppointments.map((val, index, arr) => {
             return [val.patientName, val.appointmentStartTime, val.appointmentEndTime]
         })
+
+        let patientAvatar = '../../../assets/portrait/cecilia.jpg';
+        debugger;
 
         return (
             <div>
@@ -83,7 +87,12 @@ class Overview extends Component {
                             </div>
                         </div>
                         <div className='Overview-NextPatientBlock-Right'>
-                            <img src={doctor1Logo} className='Overview-NextPatientAvator'/>
+                        {nextPatient.patientName == 'Cecilia' &&
+                            <Avatar className='Overview-NextPatientAvator' src={ceciliaLogo}/>
+                        }
+                        {nextPatient.patientName == 'jacky' &&
+                            <Avatar className='Overview-NextPatientAvator' src={jackyLogo}/>
+                        }
                             <Button color="primary">
                                 More Details
                             </Button>
